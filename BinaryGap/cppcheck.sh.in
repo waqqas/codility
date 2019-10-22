@@ -1,0 +1,10 @@
+#!/bin/bash
+
+errors=$("@CPPCHECK@" -j @CORE_COUNT@ \
+                       --project="@CMAKE_BINARY_DIR@/compile_commands.json" \
+                       --quiet \
+                       --std=c++@CMAKE_CXX_STANDARD@ \
+                       --suppressions-list="@CMAKE_SOURCE_DIR@/etc/cppcheck-suppressions.txt" \
+                       -DBOOST_AUTO_TEST_SUITE \
+                       2>&1 | tee /dev/stderr | wc -l)
+exit $(($errors > 0))
