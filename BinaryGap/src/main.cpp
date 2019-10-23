@@ -3,8 +3,7 @@
 
 #include <iostream>
 
-int main(void)
-{
+int main(void) {
   int result = -1;
   Codility::BinaryGap<1> question1;
   Codility::BinaryGap<2> question2;

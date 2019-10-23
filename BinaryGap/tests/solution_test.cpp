@@ -1,23 +1,21 @@
-#include "gtest/gtest.h"
 #include "solutions.h"
+#include "gtest/gtest.h"
 
 #include <limits>
 #include <utility>
 
-template <typename TypeName>
-class SolutionTest : public testing::Test
-{
+template <typename TypeName> class SolutionTest : public testing::Test {
 public:
   TypeName question;
 };
 
-using Solutions = ::testing::Types<Codility::BinaryGap<1>, Codility::BinaryGap<2>>;
+using Solutions =
+    ::testing::Types<Codility::BinaryGap<1>, Codility::BinaryGap<2>>;
 TYPED_TEST_SUITE(SolutionTest, Solutions);
 
-TYPED_TEST(SolutionTest, example1)
-{
+TYPED_TEST(SolutionTest, example1) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 5;
 
   // Act
@@ -27,10 +25,9 @@ TYPED_TEST(SolutionTest, example1)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, example2)
-{
+TYPED_TEST(SolutionTest, example2) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 0;
 
   // Act
@@ -40,10 +37,9 @@ TYPED_TEST(SolutionTest, example2)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, example3)
-{
+TYPED_TEST(SolutionTest, example3) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 0;
 
   // Act
@@ -53,10 +49,9 @@ TYPED_TEST(SolutionTest, example3)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, extremes_min)
-{
+TYPED_TEST(SolutionTest, extremes_min) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 0;
 
   // Act
@@ -66,10 +61,9 @@ TYPED_TEST(SolutionTest, extremes_min)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, extremes_max)
-{
+TYPED_TEST(SolutionTest, extremes_max) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 0;
 
   // Act
@@ -79,10 +73,9 @@ TYPED_TEST(SolutionTest, extremes_max)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, trailing_zeros_one)
-{
+TYPED_TEST(SolutionTest, trailing_zeros_one) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 0;
 
   // Act
@@ -92,10 +85,9 @@ TYPED_TEST(SolutionTest, trailing_zeros_one)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, trailing_zeros_two)
-{
+TYPED_TEST(SolutionTest, trailing_zeros_two) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 2;
 
   // Act
@@ -105,10 +97,9 @@ TYPED_TEST(SolutionTest, trailing_zeros_two)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, power_of_2_one)
-{
+TYPED_TEST(SolutionTest, power_of_2_one) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 1;
 
   // Act
@@ -118,10 +109,9 @@ TYPED_TEST(SolutionTest, power_of_2_one)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, power_of_2_two)
-{
+TYPED_TEST(SolutionTest, power_of_2_two) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 0;
 
   // Act
@@ -131,10 +121,9 @@ TYPED_TEST(SolutionTest, power_of_2_two)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, power_of_2_three)
-{
+TYPED_TEST(SolutionTest, power_of_2_three) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 0;
 
   // Act
@@ -144,10 +133,9 @@ TYPED_TEST(SolutionTest, power_of_2_three)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, simple1_one)
-{
+TYPED_TEST(SolutionTest, simple1_one) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 2;
 
   // Act
@@ -157,10 +145,9 @@ TYPED_TEST(SolutionTest, simple1_one)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, simple1_two)
-{
+TYPED_TEST(SolutionTest, simple1_two) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 1;
 
   // Act
@@ -170,10 +157,9 @@ TYPED_TEST(SolutionTest, simple1_two)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, simple2_one)
-{
+TYPED_TEST(SolutionTest, simple2_one) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 2;
 
   // Act
@@ -183,10 +169,9 @@ TYPED_TEST(SolutionTest, simple2_one)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, simple2_two)
-{
+TYPED_TEST(SolutionTest, simple2_two) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 1;
 
   // Act
@@ -196,10 +181,9 @@ TYPED_TEST(SolutionTest, simple2_two)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, simple3_one)
-{
+TYPED_TEST(SolutionTest, simple3_one) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 3;
 
   // Act
@@ -209,10 +193,9 @@ TYPED_TEST(SolutionTest, simple3_one)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, simple3_two)
-{
+TYPED_TEST(SolutionTest, simple3_two) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 1;
 
   // Act
@@ -222,10 +205,9 @@ TYPED_TEST(SolutionTest, simple3_two)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, medium1_one)
-{
+TYPED_TEST(SolutionTest, medium1_one) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 2;
 
   // Act
@@ -235,10 +217,9 @@ TYPED_TEST(SolutionTest, medium1_one)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, medium1_two)
-{
+TYPED_TEST(SolutionTest, medium1_two) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 1;
 
   // Act
@@ -248,10 +229,9 @@ TYPED_TEST(SolutionTest, medium1_two)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, medium2_one)
-{
+TYPED_TEST(SolutionTest, medium2_one) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 3;
 
   // Act
@@ -261,10 +241,9 @@ TYPED_TEST(SolutionTest, medium2_one)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, medium2_two)
-{
+TYPED_TEST(SolutionTest, medium2_two) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 2;
 
   // Act
@@ -274,10 +253,9 @@ TYPED_TEST(SolutionTest, medium2_two)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, medium3_one)
-{
+TYPED_TEST(SolutionTest, medium3_one) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 9;
 
   // Act
@@ -287,10 +265,9 @@ TYPED_TEST(SolutionTest, medium3_one)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, large_one)
-{
+TYPED_TEST(SolutionTest, large_one) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 20;
 
   // Act
@@ -300,10 +277,9 @@ TYPED_TEST(SolutionTest, large_one)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, large_two)
-{
+TYPED_TEST(SolutionTest, large_two) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 4;
 
   // Act
@@ -313,10 +289,9 @@ TYPED_TEST(SolutionTest, large_two)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, large_three)
-{
+TYPED_TEST(SolutionTest, large_three) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 25;
 
   // Act
@@ -326,10 +301,9 @@ TYPED_TEST(SolutionTest, large_three)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, large_four)
-{
+TYPED_TEST(SolutionTest, large_four) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 5;
 
   // Act
@@ -339,10 +313,9 @@ TYPED_TEST(SolutionTest, large_four)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, large_five)
-{
+TYPED_TEST(SolutionTest, large_five) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 29;
 
   // Act
@@ -352,10 +325,9 @@ TYPED_TEST(SolutionTest, large_five)
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, large_six)
-{
+TYPED_TEST(SolutionTest, large_six) {
   // Arrange
-  int actual   = -1;
+  int actual = -1;
   int expected = 28;
 
   // Act
