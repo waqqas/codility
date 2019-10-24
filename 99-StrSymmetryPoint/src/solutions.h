@@ -20,7 +20,7 @@ public:
     string::iterator back = input.begin() + input.length() - 1;
 
     // find the first non-matching character
-    int32_t index = 0;
+    size_t index = 0;
     for (; fwd != back; ++fwd, --back, ++index) {
       if (*fwd != *back) {
         break;
