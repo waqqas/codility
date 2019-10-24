@@ -5,14 +5,31 @@
 #include <string>
 
 namespace Codility {
-template <int32_t S = 1> class StrSymmetryPoint {
+bool is_even(std::size_t size) { return size % 2 == 0; }
+
+template <int32_t S> class StrSymmetryPoint {
+  using string = std::string;
+
 public:
-  int32_t solution(const std::string &input) { return -1; }
+  int32_t solution(string &input) {
+    if (input.length() <= 1 || is_even(input.length())) {
+      return -1;
+    }
+
+    string::iterator fwd = input.begin();
+    string::iterator back = input.begin() + input.length() - 1;
+
+    // find the first non-matching character
+    int32_t index = 0;
+    for (; fwd != back; ++fwd, --back, ++index) {
+      if (*fwd != *back) {
+        break;
+      }
+    }
+
+    return (input.length() / 2) == index ? index : -1;
+  }
 };
 
-template <> class StrSymmetryPoint<2> {
-public:
-  int32_t solution(const std::string &input) { return -1; }
-};
 } // namespace Codility
 #endif
