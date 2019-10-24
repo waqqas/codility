@@ -1,17 +1,22 @@
+#include "benchmark/benchmark.h"
 #include "solutions.h"
-
-#include <benchmark/benchmark.h>
+#include <algorithm>
 #include <string>
 
-template <int32_t S>
-void BM_Solution(benchmark::State &state) {
+
+template <int32_t S> void BM_StringSize(benchmark::State &state) {
   Codility::StrSymmetryPoint<S> question;
 
-  std::string input("racecar");
+  std::size_t size = state.range(0) + 1; // make it odd
+  std::string input;
+  input.resize(size);
+
+  std::for_each(input.begin(), input.end(),
+                [](std::string::value_type &val) { val = '\0'; });
 
   for (auto _ : state) {
     ::benchmark::DoNotOptimize(question.solution(input));
   }
 }
 
-BENCHMARK_TEMPLATE(BM_Solution, 1);
+BENCHMARK_TEMPLATE(BM_StringSize, 1)->RangeMultiplier(8)->Range(1, 200000);
