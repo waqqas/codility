@@ -51,11 +51,37 @@ TYPED_TEST(SolutionTest, empty) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, invalid1) {
+TYPED_TEST(SolutionTest, last_char_mismatch) {
   // Arrange
   int actual = -1;
   int expected = -1;
   std::string input("radecar");
+
+  // Act
+  actual = this->question.solution(input);
+
+  // Assert
+  EXPECT_EQ(actual, expected);
+}
+
+TYPED_TEST(SolutionTest, first_char_mismatch) {
+  // Arrange
+  int actual = -1;
+  int expected = -1;
+  std::string input("aacecar");
+
+  // Act
+  actual = this->question.solution(input);
+
+  // Assert
+  EXPECT_EQ(actual, expected);
+}
+
+TYPED_TEST(SolutionTest, middle_char_mismatch) {
+  // Arrange
+  int actual = -1;
+  int expected = -1;
+  std::string input("rbcecar");
 
   // Act
   actual = this->question.solution(input);
