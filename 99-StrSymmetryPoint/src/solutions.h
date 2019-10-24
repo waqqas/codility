@@ -12,7 +12,7 @@ template <int32_t S> class StrSymmetryPoint {
 
 public:
   int32_t solution(string &input) {
-    if (input.length() <= 1 || is_even(input.length())) {
+    if (input.length() < 1 || is_even(input.length())) {
       return -1;
     }
 

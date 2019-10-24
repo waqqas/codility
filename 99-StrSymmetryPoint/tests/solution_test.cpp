@@ -28,7 +28,7 @@ TYPED_TEST(SolutionTest, valid1) {
 TYPED_TEST(SolutionTest, single_letter) {
   // Arrange
   int actual = -1;
-  int expected = -1;
+  int expected = 0;
   std::string input("x");
 
   // Act
