@@ -10,4 +10,4 @@ template <int32_t S> void BM_Solution(benchmark::State &state) {
   }
 }
 
-BENCHMARK_TEMPLATE(BM_Solution, 1)->RangeMultiplier(8)->Range(1, 200000);
+BENCHMARK_TEMPLATE(BM_Solution, 1)->RangeMultiplier(2)->Range(1, 50);
