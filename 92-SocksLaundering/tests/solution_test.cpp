@@ -25,7 +25,7 @@ TYPED_TEST_SUITE(SolutionTest, Solutions);
 //   EXPECT_EQ(actual, expected);
 // }
 
-TYPED_TEST(SolutionTest, clear_pair1) {
+TYPED_TEST(SolutionTest, single_pair_of_clean_socks) {
   // Arrange
   typename TypeParam::pair_count actual = -1;
   typename TypeParam::pair_count expected = 1;
@@ -39,11 +39,25 @@ TYPED_TEST(SolutionTest, clear_pair1) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, clear_pair2) {
+TYPED_TEST(SolutionTest, two_pairs_of_clean_socks) {
   // Arrange
   typename TypeParam::pair_count actual = -1;
   typename TypeParam::pair_count expected = 2;
   typename TypeParam::sock_list clean = {1, 2, 1, 2};
+  typename TypeParam::sock_list dirty;
+
+  // Act
+  actual = this->question.solution(0, clean, dirty);
+
+  // Assert
+  EXPECT_EQ(actual, expected);
+}
+
+TYPED_TEST(SolutionTest, one_mismatch_in_clean_socks) {
+  // Arrange
+  typename TypeParam::pair_count actual = -1;
+  typename TypeParam::pair_count expected = 2;
+  typename TypeParam::sock_list clean = {1, 3, 2, 1, 2};
   typename TypeParam::sock_list dirty;
 
   // Act

@@ -28,15 +28,18 @@ private:
   pair_count make_sock_pairs(sock_list &list) {
     pair_count count = 0;
 
-    while (!list.empty()) {
-      sock_list::iterator second = find_second_pair(list.begin(), list.end());
+    auto first = list.begin();
+    while (first != list.end()) {
+      const auto second = find_second_pair(first, list.end());
 
       // remove pair from the list
       if (second != list.end()) {
         list.erase(second); // remove 2nd first, so first iterator is not
                             // invalidated
-        list.erase(list.begin());
+        first = list.erase(first);
         count++;
+      } else {
+        ++first;
       }
     }
     return count;
