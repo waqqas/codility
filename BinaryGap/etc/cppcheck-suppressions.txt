@@ -1,6 +1,0 @@
-cppcheckError:*/tests/*.cpp
-cppcheckError:*/benchmarks/*.cpp
-# syntaxError:*/toolbox/sys/Thread.cpp
-# preprocessorErrorDirective:*/toolbox/net/Error.cpp
-# preprocessorErrorDirective:*/toolbox/sys/Error.cpp
-# returnDanglingLifetime:*/toolbox/io/Timer.cpp

@@ -1,17 +1,17 @@
-#include "solutions.h"
+#include "SocksLaundering.h"
 #include "gtest/gtest.h"
 
 #include <vector>
 
-template <typename TypeName> class SolutionTest : public testing::Test {
+template <typename TypeName> class SocksLaundering : public testing::Test {
 public:
   TypeName question;
 };
 
 using Solutions = ::testing::Types<Codility::SocksLaundering<1>>;
-TYPED_TEST_SUITE(SolutionTest, Solutions);
+TYPED_TEST_SUITE(SocksLaundering, Solutions);
 
-TYPED_TEST(SolutionTest, single_pair_of_clean_socks) {
+TYPED_TEST(SocksLaundering, single_pair_of_clean_socks) {
   // Arrange
   typename TypeParam::pair_count actual = -1;
   typename TypeParam::pair_count expected = 1;
@@ -25,7 +25,7 @@ TYPED_TEST(SolutionTest, single_pair_of_clean_socks) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, two_pairs_of_clean_socks) {
+TYPED_TEST(SocksLaundering, two_pairs_of_clean_socks) {
   // Arrange
   typename TypeParam::pair_count actual = -1;
   typename TypeParam::pair_count expected = 2;
@@ -39,7 +39,7 @@ TYPED_TEST(SolutionTest, two_pairs_of_clean_socks) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, one_mismatch_in_clean_socks) {
+TYPED_TEST(SocksLaundering, one_mismatch_in_clean_socks) {
   // Arrange
   typename TypeParam::pair_count actual = -1;
   typename TypeParam::pair_count expected = 2;
@@ -53,7 +53,7 @@ TYPED_TEST(SolutionTest, one_mismatch_in_clean_socks) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, one_match_in_dirty_socks) {
+TYPED_TEST(SocksLaundering, one_match_in_dirty_socks) {
   // Arrange
   typename TypeParam::pair_count actual = -1;
   typename TypeParam::pair_count expected = 1;
@@ -67,7 +67,7 @@ TYPED_TEST(SolutionTest, one_match_in_dirty_socks) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, one_clean_and_one_dirty_pair) {
+TYPED_TEST(SocksLaundering, one_clean_and_one_dirty_pair) {
   // Arrange
   typename TypeParam::pair_count actual = -1;
   typename TypeParam::pair_count expected = 2;
@@ -81,7 +81,7 @@ TYPED_TEST(SolutionTest, one_clean_and_one_dirty_pair) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, two_matches_in_dirty_socks) {
+TYPED_TEST(SocksLaundering, two_matches_in_dirty_socks) {
   // Arrange
   typename TypeParam::pair_count actual = -1;
   typename TypeParam::pair_count expected = 2;
@@ -95,7 +95,7 @@ TYPED_TEST(SolutionTest, two_matches_in_dirty_socks) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, honor_max_wash) {
+TYPED_TEST(SocksLaundering, honor_max_wash) {
   // Arrange
   typename TypeParam::pair_count actual = -1;
   typename TypeParam::pair_count expected = 1;
@@ -109,7 +109,7 @@ TYPED_TEST(SolutionTest, honor_max_wash) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, example) {
+TYPED_TEST(SocksLaundering, example) {
   // Arrange
   typename TypeParam::pair_count actual = -1;
   typename TypeParam::pair_count expected = 3;
@@ -123,7 +123,7 @@ TYPED_TEST(SolutionTest, example) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, two_dirty_pairs_less_washable) {
+TYPED_TEST(SocksLaundering, two_dirty_pairs_less_washable) {
   // Arrange
   typename TypeParam::pair_count actual = -1;
   typename TypeParam::pair_count expected = 1;

@@ -1,5 +1,5 @@
-#ifndef _SOLUTIONS_H_
-#define _SOLUTIONS_H_
+#ifndef _BINARYGAP_H_
+#define _BINARYGAP_H_
 
 #include <cstdint>
 #include <limits>

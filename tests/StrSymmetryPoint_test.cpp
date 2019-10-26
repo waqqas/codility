@@ -1,18 +1,18 @@
-#include "solutions.h"
+#include "StrSymmetryPoint.h"
 #include "gtest/gtest.h"
 
 #include <string>
 #include <utility>
 
-template <typename TypeName> class SolutionTest : public testing::Test {
+template <typename TypeName> class StrSymmetryPointTest : public testing::Test {
 public:
   TypeName question;
 };
 
 using Solutions = ::testing::Types<Codility::StrSymmetryPoint<1>>;
-TYPED_TEST_SUITE(SolutionTest, Solutions);
+TYPED_TEST_SUITE(StrSymmetryPointTest, Solutions);
 
-TYPED_TEST(SolutionTest, valid1) {
+TYPED_TEST(StrSymmetryPointTest, valid1) {
   // Arrange
   int actual = -1;
   int expected = 3;
@@ -25,7 +25,7 @@ TYPED_TEST(SolutionTest, valid1) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, single_letter) {
+TYPED_TEST(StrSymmetryPointTest, single_letter) {
   // Arrange
   int actual = -1;
   int expected = 0;
@@ -38,7 +38,7 @@ TYPED_TEST(SolutionTest, single_letter) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, empty) {
+TYPED_TEST(StrSymmetryPointTest, empty) {
   // Arrange
   int actual = -1;
   int expected = -1;
@@ -51,7 +51,7 @@ TYPED_TEST(SolutionTest, empty) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, last_char_mismatch) {
+TYPED_TEST(StrSymmetryPointTest, last_char_mismatch) {
   // Arrange
   int actual = -1;
   int expected = -1;
@@ -64,7 +64,7 @@ TYPED_TEST(SolutionTest, last_char_mismatch) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, first_char_mismatch) {
+TYPED_TEST(StrSymmetryPointTest, first_char_mismatch) {
   // Arrange
   int actual = -1;
   int expected = -1;
@@ -77,7 +77,7 @@ TYPED_TEST(SolutionTest, first_char_mismatch) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, middle_char_mismatch) {
+TYPED_TEST(StrSymmetryPointTest, middle_char_mismatch) {
   // Arrange
   int actual = -1;
   int expected = -1;

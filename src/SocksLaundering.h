@@ -1,5 +1,5 @@
-#ifndef _SOLUTIONS_H_
-#define _SOLUTIONS_H_
+#ifndef _SOCKS_LAUNDERING_H_
+#define _SOCKS_LAUNDERING_H_
 
 #include <algorithm>
 #include <cstdint>

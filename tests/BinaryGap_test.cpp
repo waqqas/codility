@@ -1,19 +1,19 @@
-#include "solutions.h"
+#include "BinaryGap.h"
 #include "gtest/gtest.h"
 
 #include <limits>
 #include <utility>
 
-template <typename TypeName> class SolutionTest : public testing::Test {
+template <typename TypeName> class BinaryGapTest : public testing::Test {
 public:
   TypeName question;
 };
 
 using Solutions =
     ::testing::Types<Codility::BinaryGap<1>, Codility::BinaryGap<2>>;
-TYPED_TEST_SUITE(SolutionTest, Solutions);
+TYPED_TEST_SUITE(BinaryGapTest, Solutions);
 
-TYPED_TEST(SolutionTest, example1) {
+TYPED_TEST(BinaryGapTest, example1) {
   // Arrange
   int actual = -1;
   int expected = 5;
@@ -25,7 +25,7 @@ TYPED_TEST(SolutionTest, example1) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, example2) {
+TYPED_TEST(BinaryGapTest, example2) {
   // Arrange
   int actual = -1;
   int expected = 0;
@@ -37,7 +37,7 @@ TYPED_TEST(SolutionTest, example2) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, example3) {
+TYPED_TEST(BinaryGapTest, example3) {
   // Arrange
   int actual = -1;
   int expected = 0;
@@ -49,7 +49,7 @@ TYPED_TEST(SolutionTest, example3) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, extremes_min) {
+TYPED_TEST(BinaryGapTest, extremes_min) {
   // Arrange
   int actual = -1;
   int expected = 0;
@@ -61,7 +61,7 @@ TYPED_TEST(SolutionTest, extremes_min) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, extremes_max) {
+TYPED_TEST(BinaryGapTest, extremes_max) {
   // Arrange
   int actual = -1;
   int expected = 0;
@@ -73,7 +73,7 @@ TYPED_TEST(SolutionTest, extremes_max) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, trailing_zeros_one) {
+TYPED_TEST(BinaryGapTest, trailing_zeros_one) {
   // Arrange
   int actual = -1;
   int expected = 0;
@@ -85,7 +85,7 @@ TYPED_TEST(SolutionTest, trailing_zeros_one) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, trailing_zeros_two) {
+TYPED_TEST(BinaryGapTest, trailing_zeros_two) {
   // Arrange
   int actual = -1;
   int expected = 2;
@@ -97,7 +97,7 @@ TYPED_TEST(SolutionTest, trailing_zeros_two) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, power_of_2_one) {
+TYPED_TEST(BinaryGapTest, power_of_2_one) {
   // Arrange
   int actual = -1;
   int expected = 1;
@@ -109,7 +109,7 @@ TYPED_TEST(SolutionTest, power_of_2_one) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, power_of_2_two) {
+TYPED_TEST(BinaryGapTest, power_of_2_two) {
   // Arrange
   int actual = -1;
   int expected = 0;
@@ -121,7 +121,7 @@ TYPED_TEST(SolutionTest, power_of_2_two) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, power_of_2_three) {
+TYPED_TEST(BinaryGapTest, power_of_2_three) {
   // Arrange
   int actual = -1;
   int expected = 0;
@@ -133,7 +133,7 @@ TYPED_TEST(SolutionTest, power_of_2_three) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, simple1_one) {
+TYPED_TEST(BinaryGapTest, simple1_one) {
   // Arrange
   int actual = -1;
   int expected = 2;
@@ -145,7 +145,7 @@ TYPED_TEST(SolutionTest, simple1_one) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, simple1_two) {
+TYPED_TEST(BinaryGapTest, simple1_two) {
   // Arrange
   int actual = -1;
   int expected = 1;
@@ -157,7 +157,7 @@ TYPED_TEST(SolutionTest, simple1_two) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, simple2_one) {
+TYPED_TEST(BinaryGapTest, simple2_one) {
   // Arrange
   int actual = -1;
   int expected = 2;
@@ -169,7 +169,7 @@ TYPED_TEST(SolutionTest, simple2_one) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, simple2_two) {
+TYPED_TEST(BinaryGapTest, simple2_two) {
   // Arrange
   int actual = -1;
   int expected = 1;
@@ -181,7 +181,7 @@ TYPED_TEST(SolutionTest, simple2_two) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, simple3_one) {
+TYPED_TEST(BinaryGapTest, simple3_one) {
   // Arrange
   int actual = -1;
   int expected = 3;
@@ -193,7 +193,7 @@ TYPED_TEST(SolutionTest, simple3_one) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, simple3_two) {
+TYPED_TEST(BinaryGapTest, simple3_two) {
   // Arrange
   int actual = -1;
   int expected = 1;
@@ -205,7 +205,7 @@ TYPED_TEST(SolutionTest, simple3_two) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, medium1_one) {
+TYPED_TEST(BinaryGapTest, medium1_one) {
   // Arrange
   int actual = -1;
   int expected = 2;
@@ -217,7 +217,7 @@ TYPED_TEST(SolutionTest, medium1_one) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, medium1_two) {
+TYPED_TEST(BinaryGapTest, medium1_two) {
   // Arrange
   int actual = -1;
   int expected = 1;
@@ -229,7 +229,7 @@ TYPED_TEST(SolutionTest, medium1_two) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, medium2_one) {
+TYPED_TEST(BinaryGapTest, medium2_one) {
   // Arrange
   int actual = -1;
   int expected = 3;
@@ -241,7 +241,7 @@ TYPED_TEST(SolutionTest, medium2_one) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, medium2_two) {
+TYPED_TEST(BinaryGapTest, medium2_two) {
   // Arrange
   int actual = -1;
   int expected = 2;
@@ -253,7 +253,7 @@ TYPED_TEST(SolutionTest, medium2_two) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, medium3_one) {
+TYPED_TEST(BinaryGapTest, medium3_one) {
   // Arrange
   int actual = -1;
   int expected = 9;
@@ -265,7 +265,7 @@ TYPED_TEST(SolutionTest, medium3_one) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, large_one) {
+TYPED_TEST(BinaryGapTest, large_one) {
   // Arrange
   int actual = -1;
   int expected = 20;
@@ -277,7 +277,7 @@ TYPED_TEST(SolutionTest, large_one) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, large_two) {
+TYPED_TEST(BinaryGapTest, large_two) {
   // Arrange
   int actual = -1;
   int expected = 4;
@@ -289,7 +289,7 @@ TYPED_TEST(SolutionTest, large_two) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, large_three) {
+TYPED_TEST(BinaryGapTest, large_three) {
   // Arrange
   int actual = -1;
   int expected = 25;
@@ -301,7 +301,7 @@ TYPED_TEST(SolutionTest, large_three) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, large_four) {
+TYPED_TEST(BinaryGapTest, large_four) {
   // Arrange
   int actual = -1;
   int expected = 5;
@@ -313,7 +313,7 @@ TYPED_TEST(SolutionTest, large_four) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, large_five) {
+TYPED_TEST(BinaryGapTest, large_five) {
   // Arrange
   int actual = -1;
   int expected = 29;
@@ -325,7 +325,7 @@ TYPED_TEST(SolutionTest, large_five) {
   EXPECT_EQ(actual, expected);
 }
 
-TYPED_TEST(SolutionTest, large_six) {
+TYPED_TEST(BinaryGapTest, large_six) {
   // Arrange
   int actual = -1;
   int expected = 28;

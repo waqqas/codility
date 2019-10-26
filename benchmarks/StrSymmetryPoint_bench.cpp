@@ -1,10 +1,10 @@
 #include "benchmark/benchmark.h"
-#include "solutions.h"
+#include "StrSymmetryPoint.h"
 #include <algorithm>
 #include <string>
 
 
-template <int32_t S> void BM_StringSize(benchmark::State &state) {
+template <int32_t S> void StrSymmetryPoint(benchmark::State &state) {
   Codility::StrSymmetryPoint<S> question;
 
   std::size_t size = state.range(0) + 1; // make it odd
@@ -19,4 +19,4 @@ template <int32_t S> void BM_StringSize(benchmark::State &state) {
   }
 }
 
-BENCHMARK_TEMPLATE(BM_StringSize, 1)->RangeMultiplier(8)->Range(1, 200000);
+BENCHMARK_TEMPLATE(StrSymmetryPoint, 1)->RangeMultiplier(8)->Range(1, 200000);

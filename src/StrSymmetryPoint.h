@@ -1,5 +1,5 @@
-#ifndef _SOLUTIONS_H_
-#define _SOLUTIONS_H_
+#ifndef _STR_SYMMETRY_POINT_H_
+#define _STR_SYMMETRY_POINT_H_
 
 #include <cstdint>
 #include <string>
