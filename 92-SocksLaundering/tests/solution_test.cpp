@@ -122,3 +122,17 @@ TYPED_TEST(SolutionTest, example) {
   // Assert
   EXPECT_EQ(actual, expected);
 }
+
+TYPED_TEST(SolutionTest, two_dirty_pairs_less_washable) {
+  // Arrange
+  typename TypeParam::pair_count actual = -1;
+  typename TypeParam::pair_count expected = 1;
+  typename TypeParam::sock_list clean = {};
+  typename TypeParam::sock_list dirty = {1, 4, 1, 2, 4};
+
+  // Act
+  actual = this->question.solution(2, clean, dirty);
+
+  // Assert
+  EXPECT_EQ(actual, expected);
+}
