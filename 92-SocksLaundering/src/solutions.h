@@ -6,6 +6,7 @@
 #include <vector>
 
 namespace Codility {
+using namespace std;
 
 template <int32_t S> class SocksLaundering {
 public:
@@ -28,22 +29,22 @@ private:
     pair_count count = 0;
 
     while (!list.empty()) {
-      count += make_pair(list);
+      sock_list::iterator second = find_second_pair(list.begin(), list.end());
+
+      // remove pair from the list
+      if (second != list.end()) {
+        list.erase(second); // remove 2nd first, so first iterator is not
+                            // invalidated
+        list.erase(list.begin());
+        count++;
+      }
     }
     return count;
   }
 
-  pair_count make_pair(sock_list &list) {
-    sock_list::iterator first_pair = list.begin();
-    // find in second pair
-    sock_list::iterator second_pair =
-        std::find(first_pair + 1, std::end(list), *first_pair);
-    if (second_pair != list.end()) {
-      list.erase(second_pair);    // remove 2nd first, so first iterator is not invalidated
-      list.erase(first_pair);
-      return 1;
-    }
-    return 0;
+  sock_list::iterator find_second_pair(const sock_list::iterator &start,
+                                       const sock_list::iterator &end) {
+    return find(start + 1, end, *start);
   }
 };
 
