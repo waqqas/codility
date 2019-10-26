@@ -28,18 +28,22 @@ private:
     pair_count count = 0;
 
     while (!list.empty()) {
-
-      sock_list::iterator first_pair = list.begin();
-      // find in second pair
-      sock_list::iterator second_pair =
-          std::find(first_pair + 1, std::end(list), *first_pair);
-      if (second_pair != list.end()) {
-        count++;
-        list.erase(second_pair);
-        list.erase(first_pair);
-      }
+      count += make_pair(list);
     }
     return count;
+  }
+
+  pair_count make_pair(sock_list &list) {
+    sock_list::iterator first_pair = list.begin();
+    // find in second pair
+    sock_list::iterator second_pair =
+        std::find(first_pair + 1, std::end(list), *first_pair);
+    if (second_pair != list.end()) {
+      list.erase(second_pair);    // remove 2nd first, so first iterator is not invalidated
+      list.erase(first_pair);
+      return 1;
+    }
+    return 0;
   }
 };
 
