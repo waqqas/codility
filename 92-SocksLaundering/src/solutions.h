@@ -16,15 +16,32 @@ public:
 
   pair_count solution(int32_t max_wash_count, sock_list &clean,
                       sock_list &dirty) {
-    pair_count pairs = 0;
-
     // make pairs in clean list
-    pairs = make_sock_pairs(clean);
+    pair_count pairs = make_sock_pairs(clean);
+    
+    // match with dirty socks
+    pairs += match_with_dirty_socks(clean, dirty);
 
     return pairs;
   }
 
 private:
+  pair_count match_with_dirty_socks(sock_list &clean, sock_list &dirty) {
+    pair_count count = 0;
+    auto clean_sock = clean.begin();
+    while (clean_sock != clean.end()) {
+      const auto dirty_sock = find(begin(dirty), end(dirty), *clean_sock);
+      if (dirty_sock != std::end(dirty)) {
+        count++;
+        dirty.erase(dirty_sock);
+        clean_sock = clean.erase(clean_sock);
+      } else {
+        ++clean_sock;
+      }
+    }
+    return count;
+  }
+
   pair_count make_sock_pairs(sock_list &list) {
     pair_count count = 0;
 
@@ -45,7 +62,7 @@ private:
     return count;
   }
 
-  sock_list::iterator find_second_pair(const sock_list::iterator &start,
+  inline sock_list::iterator find_second_pair(const sock_list::iterator &start,
                                        const sock_list::iterator &end) {
     return find(start + 1, end, *start);
   }

@@ -66,3 +66,17 @@ TYPED_TEST(SolutionTest, one_mismatch_in_clean_socks) {
   // Assert
   EXPECT_EQ(actual, expected);
 }
+
+TYPED_TEST(SolutionTest, one_match_in_dirty_socks) {
+  // Arrange
+  typename TypeParam::pair_count actual = -1;
+  typename TypeParam::pair_count expected = 1;
+  typename TypeParam::sock_list clean = {1};
+  typename TypeParam::sock_list dirty = {1};
+
+  // Act
+  actual = this->question.solution(1, clean, dirty);
+
+  // Assert
+  EXPECT_EQ(actual, expected);
+}
