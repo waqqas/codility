@@ -1,6 +1,5 @@
-#include "benchmark/benchmark.h"
 #include "SocksLaundering.h"
-
+#include "benchmark/benchmark.h"
 
 template <int32_t S> void SocksLaundering(benchmark::State &state) {
   Codility::SocksLaundering<S> question;

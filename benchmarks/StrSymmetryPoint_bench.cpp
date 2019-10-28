@@ -1,8 +1,7 @@
-#include "benchmark/benchmark.h"
 #include "StrSymmetryPoint.h"
+#include "benchmark/benchmark.h"
 #include <algorithm>
 #include <string>
-
 
 template <int32_t S> void StrSymmetryPoint(benchmark::State &state) {
   Codility::StrSymmetryPoint<S> question;
