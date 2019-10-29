@@ -1,7 +1,7 @@
 #ifndef _TWO_ARRAY_H_
 #define _TWO_ARRAY_H_
 
-#include <cstddef>
+#include <cstdint>
 #include <vector>
 
 namespace Codility {

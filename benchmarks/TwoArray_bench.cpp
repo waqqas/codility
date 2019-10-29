@@ -1,6 +1,7 @@
 #include "TwoArray.h"
 #include <benchmark/benchmark.h>
 
+#include <cstdint>
 #include <algorithm>
 #include <iostream>
 #include <random>
@@ -114,7 +115,8 @@ void TwoArray(benchmark::State& state)
     int32_t index = 0;
     for (auto _ : state) {
         ::benchmark::DoNotOptimize(question.solution(input, offsets[index]));
-        index = (++index) % size;
+        index++;
+        index %= size;
     }
 }
 
