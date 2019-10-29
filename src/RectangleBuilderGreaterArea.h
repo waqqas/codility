@@ -1,7 +1,7 @@
 #ifndef _RECTANGLE_BUILDER_GREATER_AREA_H_
 #define _RECTANGLE_BUILDER_GREATER_AREA_H_
 
-#include <cstddef>
+#include <cstdint>
 #include <vector>
 
 namespace Codility {
