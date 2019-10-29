@@ -5,9 +5,10 @@
 #include <vector>
 
 namespace Codility {
-template <int32_t S> class RectangleBuilderGreaterArea {
-public:
-  int32_t solution(std::vector<int32_t> &A, int32_t X) { return 0; }
+template <int32_t S>
+class RectangleBuilderGreaterArea {
+  public:
+    int32_t solution(std::vector<int32_t>& A, int32_t X) { return 0; }
 };
 } // namespace Codility
 
