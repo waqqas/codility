@@ -9,9 +9,9 @@ template <Implemenation I>
 void BinarySearchBench(benchmark::State& state)
 {
     using value_type = typename BinarySearch<I>::value_type;
+    int32_t number = static_cast<value_type>(state.range(0));
 
     BinarySearch<I> algo;
-    int32_t number = static_cast<value_type>(state.range(0));
 
     for (auto _ : state) {
         ::benchmark::DoNotOptimize(algo.search(number));
