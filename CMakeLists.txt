@@ -11,6 +11,10 @@ endif()
 
 string(TOUPPER "${CMAKE_BUILD_TYPE}" CMAKE_BUILD_TYPE)
 
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE RELEASE)
+endif()
+
 set(CMAKE_C_STANDARD 11)
 # Emits -std=gnu++1z on OSX which is not working as expected.
 set(CMAKE_CXX_STANDARD 17)
@@ -19,6 +23,9 @@ set(CMAKE_CXX_EXTENSIONS ON)
 set(COMMON_WARN "-Wall -Werror -Wextra -Wstrict-aliasing=2 -Wno-unused-parameter -Wno-unused-variable")
 set(COMMON_C_FLAGS "-fstrict-aliasing -fvisibility=hidden")
 set(COMMON_CXX_FLAGS "${COMMON_C_FLAGS} -faligned-new -fno-rtti")
+
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
   set(COMMON_WARN "${COMMON_WARN} -Wno-implicit-fallthrough -Wno-psabi")

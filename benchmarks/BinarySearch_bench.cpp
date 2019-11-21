@@ -20,7 +20,7 @@ void BinarySearchBench(benchmark::State& state)
 
 BENCHMARK_TEMPLATE(BinarySearchBench, Implemenation::StdAlgo)
     ->RangeMultiplier(8)
-    ->Range(1, std::numeric_limits<int32_t>::max());
+    ->Range(1, 1 << 12);
 BENCHMARK_TEMPLATE(BinarySearchBench, Implemenation::Intrinsics)
     ->RangeMultiplier(8)
-    ->Range(1, std::numeric_limits<int32_t>::max());
+    ->Range(1, 1 << 12);

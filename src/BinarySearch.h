@@ -12,7 +12,7 @@ enum class Implemenation {
     Intrinsics,
 };
 
-constexpr size_t SIZE = 4096;
+constexpr size_t SIZE = 4096U;
 
 template <Implemenation = Implemenation::StdAlgo>
 class BinarySearch {
