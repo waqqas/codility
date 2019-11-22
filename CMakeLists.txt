@@ -24,6 +24,10 @@ set(COMMON_WARN "-Wall -Werror -Wextra -Wstrict-aliasing=2 -Wno-unused-parameter
 set(COMMON_C_FLAGS "-fstrict-aliasing -fvisibility=hidden")
 set(COMMON_CXX_FLAGS "${COMMON_C_FLAGS} -faligned-new -fno-rtti")
 
+# for VCL
+set(COMMON_CXX_FLAGS "${COMMON_CXX_FLAGS} -Wno-attributes")
+
+
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
@@ -68,8 +72,12 @@ if (CLANG_TIDY)
         -p "${CMAKE_BINARY_DIR}")
 endif()
 
+set(VCL_DIR ${CMAKE_SOURCE_DIR})
+find_package(VCL)
+
 file(GLOB SOURCES src/*.cpp src/*.h)
 add_executable(app ${SOURCES})
+add_dependencies(app vcl)
 
 add_subdirectory(benchmarks)
 add_subdirectory(tests)

@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <array>
 #include <cstdint>
+#include "vectorclass.h"
 
 namespace Codility {
 

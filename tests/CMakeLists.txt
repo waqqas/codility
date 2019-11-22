@@ -7,7 +7,9 @@ set(EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
 
 ExternalProject_Add(googletest
     GIT_REPOSITORY https://github.com/google/googletest
-    CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
+    CMAKE_ARGS 
+        -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
+        -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 )
 
 include_directories(${CMAKE_SOURCE_DIR}/src)
