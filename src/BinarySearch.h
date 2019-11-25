@@ -14,11 +14,11 @@ enum class Implemenation {
     Intrinsics,
 };
 
-template <size_t SIZE, Implemenation = Implemenation::StdAlgo>
+template <size_t SIZE, typename T = int32_t, Implemenation = Implemenation::StdAlgo>
 class BinarySearch {
   public:
-    using value_type = int32_t;
-    using array_type = std::array<value_type, SIZE>;
+    using array_type = std::array<T, SIZE>;
+    using value_type = typename array_type::value_type;
     using index_type = typename array_type::size_type;
 
   private:
@@ -31,17 +31,17 @@ class BinarySearch {
             data[index] = index;
         }
     }
-    bool search(const value_type& to_find)
+    bool search(const T& to_find)
     {
         return std::binary_search(std::begin(data), std::end(data), to_find);
     }
 };
 
-template <size_t SIZE>
-class alignas(64) BinarySearch<SIZE, Implemenation::Intrinsics> {
+template <size_t SIZE, typename T>
+class alignas(64) BinarySearch<SIZE, T, Implemenation::Intrinsics> {
   public:
-    using value_type = int32_t;
-    using array_type = std::array<value_type, SIZE>;
+    using array_type = std::array<T, SIZE>;
+    using value_type = typename array_type::value_type;
     using index_type = typename array_type::size_type;
 
   private:
@@ -55,7 +55,7 @@ class alignas(64) BinarySearch<SIZE, Implemenation::Intrinsics> {
         }
         std::sort(std::begin(data), std::end(data));
     }
-    bool search(const value_type& to_find)
+    bool search(const T& to_find)
     {
         // initialize start/end to the array bounds
         index_type start_ = 0;

@@ -29,7 +29,7 @@ set(COMMON_CXX_FLAGS "${COMMON_CXX_FLAGS} -Wno-attributes")
 
 
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -mavx -fabi-version=0")
 
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
   set(COMMON_WARN "${COMMON_WARN} -Wno-implicit-fallthrough -Wno-psabi")
