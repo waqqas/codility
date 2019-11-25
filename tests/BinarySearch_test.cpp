@@ -12,11 +12,11 @@ class BinarySearchTest : public testing::Test {
     TypeName algo;
 };
 
-using Solutions = ::testing::Types<BinarySearch<Implemenation::StdAlgo>,
-                                   BinarySearch<Implemenation::Intrinsics>>;
+using Solutions = ::testing::Types<BinarySearch<64, Implemenation::StdAlgo>,
+                                   BinarySearch<64, Implemenation::Intrinsics>>;
 TYPED_TEST_SUITE(BinarySearchTest, Solutions);
 
-TYPED_TEST(BinarySearchTest, search_zero)
+TYPED_TEST(BinarySearchTest, search_list_of_size_1)
 {
     auto result = this->algo.search(0);
 
