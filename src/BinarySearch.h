@@ -3,7 +3,6 @@
 
 #include "vectorclass.h"
 #include <algorithm>
-#include <array>
 #include <cstdint>
 #include <iterator>
 
@@ -14,10 +13,10 @@ enum class Implemenation {
     Intrinsics,
 };
 
-template <size_t SIZE, typename T = int32_t, Implemenation = Implemenation::StdAlgo>
+template <typename T, Implemenation = Implemenation::StdAlgo>
 class BinarySearch {
   public:
-    using array_type = std::array<T, SIZE>;
+    using array_type = T;
     using value_type = typename array_type::value_type;
     using index_type = typename array_type::size_type;
 
@@ -31,16 +30,16 @@ class BinarySearch {
             data[index] = index;
         }
     }
-    bool search(const T& to_find)
+    bool search(const value_type& to_find)
     {
         return std::binary_search(std::begin(data), std::end(data), to_find);
     }
 };
 
-template <size_t SIZE, typename T>
-class alignas(64) BinarySearch<SIZE, T, Implemenation::Intrinsics> {
+template <typename T>
+class alignas(64) BinarySearch<T, Implemenation::Intrinsics> {
   public:
-    using array_type = std::array<T, SIZE>;
+    using array_type = T;
     using value_type = typename array_type::value_type;
     using index_type = typename array_type::size_type;
 
@@ -55,7 +54,7 @@ class alignas(64) BinarySearch<SIZE, T, Implemenation::Intrinsics> {
         }
         std::sort(std::begin(data), std::end(data));
     }
-    bool search(const T& to_find)
+    bool search(const value_type& to_find)
     {
         // initialize start/end to the array bounds
         index_type start_ = 0;

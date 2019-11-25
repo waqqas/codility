@@ -2,25 +2,26 @@
 
 #include <benchmark/benchmark.h>
 #include <limits>
+#include <array>
 
 using namespace Codility;
 
-template <size_t SIZE, typename T, Implemenation I>
+template <typename T, Implemenation I>
 void BinarySearchBench(benchmark::State& state)
 {
-    using value_type = typename BinarySearch<SIZE, T, I>::value_type;
+    using value_type = typename BinarySearch<T, I>::value_type;
     int32_t number = static_cast<value_type>(state.range(0));
 
-    BinarySearch<SIZE, T, I> algo;
+    BinarySearch<T, I> algo;
 
     for (auto _ : state) {
         ::benchmark::DoNotOptimize(algo.search(number));
     }
 }
 
-BENCHMARK_TEMPLATE(BinarySearchBench, 64, int32_t, Implemenation::StdAlgo)
+BENCHMARK_TEMPLATE(BinarySearchBench, std::array<int32_t, 64>, Implemenation::StdAlgo)
     ->RangeMultiplier(8)
     ->Range(1, 1 << 12);
-BENCHMARK_TEMPLATE(BinarySearchBench, 64, int32_t, Implemenation::Intrinsics)
+BENCHMARK_TEMPLATE(BinarySearchBench, std::array<int32_t, 64>, Implemenation::Intrinsics)
     ->RangeMultiplier(8)
     ->Range(1, 1 << 12);
