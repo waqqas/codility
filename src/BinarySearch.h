@@ -3,10 +3,10 @@
 
 #include "vectorclass.h"
 #include <algorithm>
-#include <bits/stdc++.h>
 #include <cstdint>
 #include <iterator>
 #include <vector>
+#include <unordered_set>
 
 using namespace std;
 
@@ -155,7 +155,7 @@ class alignas(64) BinarySearch<T, Implemenation::UnorderedSet> {
     using index_type = typename array_type::size_type;
 
   private:
-    unordered_set<int32_t> data;
+    T data;
 
   public:
     BinarySearch()

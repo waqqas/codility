@@ -28,6 +28,6 @@ BENCHMARK_TEMPLATE(BinarySearchBench, std::array<int32_t, 256>, Implemenation::I
 BENCHMARK_TEMPLATE(BinarySearchBench, std::array<int32_t, 256>, Implemenation::IntrinsicsImpl2)
     ->RangeMultiplier(8)
     ->Range(1, 1 << 12);
-BENCHMARK_TEMPLATE(BinarySearchBench, std::array<int32_t, 256>, Implemenation::UnorderedSet)
+BENCHMARK_TEMPLATE(BinarySearchBench, std::unordered_set<int32_t>, Implemenation::UnorderedSet)
     ->RangeMultiplier(8)
     ->Range(1, 1 << 12);
