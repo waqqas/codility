@@ -3,6 +3,7 @@
 
 #include <limits>
 #include <utility>
+#include <array>
 
 using namespace Codility;
 
@@ -12,10 +13,10 @@ class BinarySearchTest : public testing::Test {
     TypeName algo;
 };
 
-using Solutions = ::testing::Types<BinarySearch<64, int32_t, Implemenation::StdAlgo>,
-                                   BinarySearch<64, int32_t, Implemenation::Intrinsics>,
-                                   BinarySearch<64, int32_t, Implemenation::UnorderedSet>
-                                   // BinarySearch<1024, int32_t, Implemenation::Intrinsics>
+using Solutions = ::testing::Types<BinarySearch<std::array<int32_t, 64>, Implemenation::StdAlgo>,
+                                   BinarySearch<std::array<int32_t, 64>, Implemenation::Intrinsics>,
+                                   BinarySearch<std::array<int32_t, 64>, Implemenation::IntrinsicsImpl2>,
+                                   BinarySearch<std::array<int32_t, 64>, Implemenation::UnorderedSet>
                                    >;
 TYPED_TEST_SUITE(BinarySearchTest, Solutions);
 
