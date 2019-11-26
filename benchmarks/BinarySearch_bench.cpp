@@ -18,12 +18,17 @@ void BinarySearchBench(benchmark::State& state)
     }
 }
 
-BENCHMARK_TEMPLATE(BinarySearchBench, 32768, int32_t, Implemenation::StdAlgo)
+BENCHMARK_TEMPLATE(BinarySearchBench, 256, int32_t, Implemenation::StdAlgo)
     ->RangeMultiplier(8)
     ->Range(1, 1 << 12);
-BENCHMARK_TEMPLATE(BinarySearchBench, 32768, int32_t, Implemenation::Intrinsics)
+BENCHMARK_TEMPLATE(BinarySearchBench, 256, int32_t, Implemenation::Intrinsics)
     ->RangeMultiplier(8)
     ->Range(1, 1 << 12);
-BENCHMARK_TEMPLATE(BinarySearchBench, 32768, int32_t, Implemenation::UnorderedSet)
+BENCHMARK_TEMPLATE(BinarySearchBench, 256, int32_t, Implemenation::IntrinsicsImpl2)
+    ->RangeMultiplier(8)
+    ->Range(1, 1 << 12);
+// ->RangeMultiplier(2)
+// ->Range(1, 1 << 12);
+BENCHMARK_TEMPLATE(BinarySearchBench, 256, int32_t, Implemenation::UnorderedSet)
     ->RangeMultiplier(8)
     ->Range(1, 1 << 12);
