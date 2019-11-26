@@ -1,8 +1,8 @@
 #include "BinarySearch.h"
 
+#include <array>
 #include <benchmark/benchmark.h>
 #include <limits>
-#include <array>
 
 using namespace Codility;
 

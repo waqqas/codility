@@ -1,9 +1,9 @@
 #include "BinarySearch.h"
 #include "gtest/gtest.h"
 
+#include <array>
 #include <limits>
 #include <utility>
-#include <array>
 
 using namespace Codility;
 
@@ -13,11 +13,11 @@ class BinarySearchTest : public testing::Test {
     TypeName algo;
 };
 
-using Solutions = ::testing::Types<BinarySearch<std::array<int32_t, 64>, Implemenation::StdAlgo>,
-                                   BinarySearch<std::array<int32_t, 64>, Implemenation::Intrinsics>,
-                                   BinarySearch<std::array<int32_t, 64>, Implemenation::IntrinsicsImpl2>,
-                                   BinarySearch<std::array<int32_t, 64>, Implemenation::UnorderedSet>
-                                   >;
+using Solutions
+    = ::testing::Types<BinarySearch<std::array<int32_t, 64>, Implemenation::StdAlgo>,
+                       BinarySearch<std::array<int32_t, 64>, Implemenation::Intrinsics>,
+                       BinarySearch<std::array<int32_t, 64>, Implemenation::IntrinsicsImpl2>,
+                       BinarySearch<std::array<int32_t, 64>, Implemenation::UnorderedSet>>;
 TYPED_TEST_SUITE(BinarySearchTest, Solutions);
 
 TYPED_TEST(BinarySearchTest, search_list_of_size_1)

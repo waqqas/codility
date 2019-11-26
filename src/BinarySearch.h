@@ -3,19 +3,18 @@
 
 #include "vectorclass.h"
 #include <algorithm>
+#include <bits/stdc++.h>
 #include <cstdint>
 #include <iterator>
 #include <vector>
-#include <bits/stdc++.h> 
 
 using namespace std;
 
-#define INSTR_SIZE 4
-#define VEC_TYPE Vec4i
+using vector_type = Vec4i;
 
 namespace Codility {
 
-enum class Implemenation { StdAlgo, Intrinsics, IntrinsicsImpl2 , UnorderedSet };
+enum class Implemenation { StdAlgo, Intrinsics, IntrinsicsImpl2, UnorderedSet };
 
 template <typename T, Implemenation = Implemenation::StdAlgo>
 class BinarySearch {
@@ -112,17 +111,17 @@ class alignas(64) BinarySearch<T, Implemenation::IntrinsicsImpl2> {
     }
     bool search(const value_type& to_find)
     {
-        VEC_TYPE a;
-        VEC_TYPE b(to_find);
+        vector_type a;
+        vector_type b(to_find);
 
-        VEC_TYPE offset(0, 64, 128, 192);
+        vector_type offset(0, 64, 128, 192);
 
-        int seg_len = data.size() / INSTR_SIZE;
+        int seg_len = data.size() / a.size();
         int seg_start = 0, match, shift_idx = 0;
 
         for (seg_len = data.size() >> 2; seg_len >= 1; seg_len = seg_len >> 2) {
-            VEC_TYPE base(seg_start);
-            VEC_TYPE index = offset + base;
+            vector_type base(seg_start);
+            vector_type index = offset + base;
 
             offset = offset >> 2;
 
@@ -133,8 +132,9 @@ class alignas(64) BinarySearch<T, Implemenation::IntrinsicsImpl2> {
 
             match = horizontal_find_first(a >= b);
 
-            if (-1 == match)
-                match = INSTR_SIZE;
+            if (-1 == match) {
+                match = a.size();
+            }
 
             else if (to_find == a[match]) {
                 return true;
