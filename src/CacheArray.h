@@ -3,6 +3,7 @@
 
 #include <array>
 #include <cstddef>
+// #include <iostream>
 
 namespace Cache {
 
@@ -36,15 +37,33 @@ class Array {
 
   public:
     Array()
-    : offsets{1U, 0U, 2U}
     {
+        size_t mid = offsets.size() / 2;
+        size_type offset = 0;
+        offsets[mid] = offset++;
+        offsets[mid - 1] = offset++;
+        offsets[mid + 1] = offset++;
+        if (offsets.size() == 4) {
+            offsets[0] = offset;
+        }
+
+        // for (const auto& value : offsets) {
+        //     std::cout << value << ",";
+        // }
+        // std::cout << std::endl;
     }
 
-    inline const_reference read(size_type logical) const { return data[logical]; }
+    inline const_reference read(size_type logical) const
+    {
+        // std::cout << "read:  [" << logical << "] = " << data[logical] << std::endl;
+        return data[logical];
+    }
+
     inline void write(size_type logical, T const& value)
     {
         size_type physical = offsets[logical];
         data[physical] = value;
+        // std::cout << "write: " << logical << " > [" << physical << "]= " << data[physical] << std::endl;
     }
 
     Proxy operator[](size_type logical) { return Proxy(*this, logical); }

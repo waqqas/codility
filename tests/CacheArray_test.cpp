@@ -12,3 +12,19 @@ TEST(CacheArray, ArrayOfSize3)
     EXPECT_EQ(data[1], 1U);
     EXPECT_EQ(data[2], 3U);
 }
+
+
+TEST(CacheArray, ArrayOfSize4)
+{
+    Cache::Array<uint32_t, 4> data;
+    
+    data[0] = 1U;
+    data[1] = 2U;
+    data[2] = 3U;
+    data[3] = 4U;
+
+    EXPECT_EQ(data[0], 3U);
+    EXPECT_EQ(data[1], 2U);
+    EXPECT_EQ(data[2], 4U);
+    EXPECT_EQ(data[3], 1U);
+}
