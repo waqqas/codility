@@ -38,7 +38,6 @@ class Array {
     void generate_offset(offset_type& base, size_type size, size_type& offset)
     {
         size_t mid = size / 2;
-        offsets[mid] = offset++;
         offsets[mid / 2] = offset++;
         offsets[(size - mid) / 2 + mid] = offset++;
     }
@@ -47,13 +46,20 @@ class Array {
     Array()
     {
         size_type offset = 0;
-        generate_offset(offsets, offsets.size(), offset);
+        size_type size = offsets.size();
+
+        size_t mid = size / 2;
+        offsets[mid] = offset++;
+        generate_offset(offsets, size, offset);
 
         if (offsets.size() == 4) {
             offsets[0] = offset;
         } else if (offsets.size() == 5) {
             offsets[0] = offset++;
             offsets[4] = offset;
+        } else if (offsets.size() == 6) {
+            generate_offset(offsets, 3, offset);
+            offsets[5] = offset;
         }
 
         for (const auto& value : offsets) {
