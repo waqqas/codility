@@ -1,7 +1,7 @@
 #include "CacheArray.h"
 #include "gtest/gtest.h"
 
-TEST(CacheArray, Store_at_zero_index)
+TEST(CacheArray, ArrayOfSize3)
 {
     Cache::Array<uint32_t, 3> data;
     
