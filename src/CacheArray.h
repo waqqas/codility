@@ -35,14 +35,20 @@ class Array {
     array_type data;
     offset_type offsets;
 
+    void generate_offset(offset_type& base, size_type size, size_type& offset)
+    {
+        size_t mid = size / 2;
+        offsets[mid] = offset++;
+        offsets[mid / 2] = offset++;
+        offsets[(size - mid) / 2 + mid] = offset++;
+    }
+
   public:
     Array()
     {
-        size_t mid = offsets.size() / 2;
         size_type offset = 0;
-        offsets[mid] = offset++;
-        offsets[mid - 1] = offset++;
-        offsets[mid + 1] = offset++;
+        generate_offset(offsets, offsets.size(), offset);
+
         if (offsets.size() == 4) {
             offsets[0] = offset;
         } else if (offsets.size() == 5) {
