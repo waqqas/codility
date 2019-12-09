@@ -3,7 +3,7 @@
 
 #include <array>
 #include <cstddef>
-// #include <iostream>
+#include <iostream>
 
 namespace Cache {
 
@@ -45,12 +45,15 @@ class Array {
         offsets[mid + 1] = offset++;
         if (offsets.size() == 4) {
             offsets[0] = offset;
+        } else if (offsets.size() == 5) {
+            offsets[0] = offset++;
+            offsets[4] = offset;
         }
 
-        // for (const auto& value : offsets) {
-        //     std::cout << value << ",";
-        // }
-        // std::cout << std::endl;
+        for (const auto& value : offsets) {
+            std::cout << value << ",";
+        }
+        std::cout << std::endl;
     }
 
     inline const_reference read(size_type logical) const
